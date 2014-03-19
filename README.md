@@ -1,3 +1,5 @@
 Ruby 4 Robots
 =============
-test
+I have always been fascinated by robots. As a kid, I had the dream of building a terminator, and would spend countless hour creating these robots with legos and imagination. As I grew, I headed more in a software direction, yet always had that little nag in the back of my head, but the bar of electrical engineering akways required too much time I didn't have. In the past few years though, that the bar has lowered tremendously with creation of platforms like Arduino, Raspberry Pi, and Lego Mindstorms and I have finally been able to start realizing my childhood dreams (although the full terminator is still in production). At the same time I was getting back into robotics, I was also getting into Ruby and as much as I love rehashing college days of hacking C, I wanted to marry the two paths, and thus I went down the path of hacking my bots with Ruby and in this talk, I want to share the fun with you.
+
+We will be covering how to use ruby to program robots across the spectrum. We will start with "pre-fab" robots like Sphero, move onto Lego Mindstorms, and then finally head to the DIY bots built on Arduino and the Raspberry Pi. Along the way, we will cover tools, tips, and tricks to get you up and hacking quickly and demo some cool bots I have built.
