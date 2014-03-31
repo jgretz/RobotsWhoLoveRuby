@@ -1,6 +1,6 @@
 Robots Who Love Ruby
 ====================
-I have always been fascinated by robots. As a child, I would spend countless hours creating robots with Legos and imagination, trying to create my own Johnny Five or Terminator. As I grew up, I headed more in a software direction, yet always had that robotics bug in the back of my head - but sadly the bar of electrical engineering always required too much time I didn't have. In the past few years though, that barrier has all but dissapeared with the creation of platforms like Arduino, Raspberry Pi, and Lego Mindstorms and I have finally started realizing my childhood dreams (although the full Terminator is still in production). 
+I have always been fascinated by robots. As a child, I would spend countless hours creating robots with Legos and imagination, trying to create my own Johnny Five or Terminator. As I grew up, I headed more in a software direction, yet always had that robotics bug in the back of my head - but sadly the bar of electrical engineering always required too much time I didn't have. In the past few years though, that barrier has all but disappeared with the creation of platforms like Arduino, Raspberry Pi, and Lego Mindstorms and I have finally started realizing my childhood dreams (although the full Terminator is still in production). 
 
 At the same time I was getting back into robotics, I was also getting deep into Ruby. And as much as I love rehashing my old college days of hacking C, I wanted to marry these two paths, and thus I went down the path of hacking my bots with Ruby. 
 
