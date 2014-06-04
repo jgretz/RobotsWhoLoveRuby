@@ -1,0 +1,15 @@
+GIT
+  remote: https://github.com/jcnnghm/ruby-ev3.git
+  revision: ebaad0cab2a97ec5290591cd36b475f7bb12a038
+  specs:
+    ruby-ev3 (0.0.1.pre)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ruby-ev3!
