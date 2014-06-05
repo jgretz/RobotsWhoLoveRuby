@@ -3,7 +3,7 @@ require 'artoo/robot'
 class KeyboardRobot < Artoo::Robot
 	# artoo setup
 	connection :keyboard, adaptor: :keyboard
-	device :keyboard, driver: :keyboard, connection: :keyboar
+	device :keyboard, driver: :keyboard, connection: :keyboard
 
 	work do
 		on keyboard, :key => :keypress
