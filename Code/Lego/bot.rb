@@ -40,6 +40,16 @@ class Ev3Bot
 		self.right_leg.reverse
 	end
 
+	def reverse time
+		self.left_leg.reverse
+		self.right_leg.reverse
+
+		self.run time
+
+		self.left_leg.reverse
+		self.right_leg.reverse		
+	end
+
 	def run time
 		self.left_leg.start
 		self.right_leg.start
@@ -70,8 +80,8 @@ end
 bot = Ev3Bot.new
 
 bot.empty_clip
-bot.turn_left 10
-bot.turn_right 10
+# bot.turn_left 10
+# bot.turn_right 10
 
 bot.stop
 bot.disconnect

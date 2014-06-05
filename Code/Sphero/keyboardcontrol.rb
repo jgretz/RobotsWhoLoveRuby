@@ -1,3 +1,6 @@
+require "rubygems"
+require "arduino_firmata"
+
 class KeyboardControl
 	attr_accessor :listeners, :command
 
