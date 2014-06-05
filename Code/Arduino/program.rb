@@ -1,29 +1,43 @@
-require 'require_all'
-require_all 'lib'
-require_all '../Shared'
- 
-light = Stoplight.new
+require 'artoo'
+require_relative 'stoplight'
 
-last_key = ''
-KeyboardListener.instance.on_keypress = lambda {|key| last_key = key }
+# hardware setup 
+# light = Stoplight.new
 
-commands = {
-	"r" => lambda { light.turn_on :red },
-	"y" => lambda { light.turn_on :yellow },
-	"g" => lambda { light.turn_on :green }
-}
+# artoo connection and device hash
+connection :keyboard, adaptor: :keyboard
+device :keyboard, driver: :keyboard, connection: :keyboard
 
-5.times do
-	puts commands.has_key? last_key unless last_key.empty?
+# work loop
+should_quit = false
 
-	light.turn_on :red
-	sleep 1
+work do
+  on keyboard, :key => :keypress
 
-	light.turn_on :yellow
-	sleep 1
+  # exit loop
+  puts should_quit
 
-	light.turn_on :green
-	sleep 1
+  if should_quit then
+  	# light.turn_all_off
+  	break
+  end 
 end
 
-light.turn_all_off
+def keypress(sender, key)
+	case key
+		when "q"
+			should_quit = true
+		else
+			puts key
+		end
+	end
+
+	# case 'r'
+	# 	light.turn_on :red
+
+	# case 'y'
+	# 	light.turn_on :yellow
+
+	# case 'g'
+	# 	light.turn_on :green
+end
