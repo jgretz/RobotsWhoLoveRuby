@@ -1,30 +1,35 @@
-require 'artoo/robot'
+require 'sphero'
 
-class SpheroRobot < Artoo::Robot
-	# artoo setup
-	connection :sphero, :adaptor => :sphero, :port => '/dev/tty.Sphero-YOR-AMP-SPP'
-	device :sphero, :driver => :sphero
-
-	work do
-		sphero.set_color :red
-	end
-
-	# class
-	attr_accessor :speed, :bot
+class SpheroRobot
+	attr_accessor :sphero, :speed
+	attr_accessor :blue, :red, :green, :yellow
 
 	def initialize
-		self.speed = 50
+		puts "Connecting to Sphero ..."
+		@sphero = Sphero.new "/dev/tty.Sphero-YOR-AMP-SPP"
+		@sphero.ping
+
+		@speed = 50
+
+		#colors
+		@blue = [0,0,255]
+		@red = [255,0,0]
+		@green = [0,255,0]
+		@yellow = [255,255,0]
 	end
 	
 	def change_color color
-		bot.set_color color
+		color_array = self.send(color)
+		return unless color_array
+
+		sphero.rgb color_array[0], color_array[1], color_array[2], true
+	end
+
+	def roll degrees
+		sphero.roll speed, degrees
 	end
 
 	def stop
-		bot.stop
-	end
-
-	def roll direction
-		bot.roll self.speed, direction
+		sphero.stop
 	end
 end
