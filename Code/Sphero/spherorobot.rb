@@ -1,5 +1,4 @@
 require 'artoo/robot'
-require 'artoo'
 
 class SpheroRobot < Artoo::Robot
 	# artoo setup

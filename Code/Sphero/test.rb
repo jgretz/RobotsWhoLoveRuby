@@ -1,6 +1,6 @@
 require 'artoo/robot'
 
-SPHEROS = ["/dev/tty.Sphero-YOR-AMP-SPP"]
+SPHEROS = ["/dev/tty.Sphero-YOR-AMP-SPP-1"]
 
 class SpheroRobot < Artoo::Robot
   connection :sphero, :adaptor => :sphero
