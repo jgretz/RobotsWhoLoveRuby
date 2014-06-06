@@ -3,9 +3,8 @@ require "require_all"
 require_relative "spherorobot"
 
 ball = SpheroRobot.new
-puts ball
 
-ball.change_color :blue
+# ball.change_color :blue
 
 # keyboard = KeyboardRobot.new
 

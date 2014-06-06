@@ -6,25 +6,25 @@ class SpheroRobot < Artoo::Robot
 	device :sphero, :driver => :sphero
 
 	work do
-		on sphero, :handle_collision_detect => lambda {|data| puts "Ouch" }
+		sphero.set_color :red
 	end
 
 	# class
-	attr_accessor :speed
+	attr_accessor :speed, :bot
 
 	def initialize
 		self.speed = 50
 	end
 	
 	def change_color color
-		sphero.set_color color
+		bot.set_color color
 	end
 
 	def stop
-		sphero.stop
+		bot.stop
 	end
 
 	def roll direction
-		sphero.roll self.speed, direction
+		bot.roll self.speed, direction
 	end
 end
