@@ -14,8 +14,8 @@ class Stoplight
 		puts "Connected to Arduino Device"
 	end
 
-	def turn_on color
-		self.turn_all_off
+	def turn_on color, turn_off_others=true
+		turn_all_off if turn_off_others
 
 		@arduino.digital_write self.send(color), true
 	end
@@ -25,9 +25,24 @@ class Stoplight
 	end
 
 	def turn_all_off
-		self.turn_off :red
-		self.turn_off :yellow
-		self.turn_off :green
+		turn_off :red
+		turn_off :yellow
+		turn_off :green
+	end
+
+	def have_fun
+		10.times do
+			(1..3).to_a.sample.times do
+				colors = [ :red, :yellow, :green ]
+
+				turn_on colors.sample, false
+			end
+			sleep 0.65
+
+			turn_all_off
+		end
+
+		puts "That's enough, I'm tired"
 	end
 
 end
