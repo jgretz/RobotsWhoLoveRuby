@@ -18,10 +18,10 @@ class KeyboardRobot < Artoo::Robot
 	end
 
 	def add_handler key, logic
-		@handlers[key] = logic
+		handlers[key] = logic
 	end
 
 	def keypress sender, key
-		@handlers[key].call if @handlers.has_key? key
+		handlers[key].call if handlers.has_key? key
 	end
 end

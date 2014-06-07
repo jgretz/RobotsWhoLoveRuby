@@ -7,21 +7,17 @@ class Ev3Bot
 	attr_accessor :left_forward, :right_forward
 
 	def initialize
+		puts "Connecting to EV3"
 		@brick = EV3::Brick.new(EV3::Connections::Bluetooth.new)
 		@brick.connect
-
-		puts "Connected"
 
 		@left_leg = brick.motor('b')
 		@right_leg = brick.motor('c')
 		@gun = brick.motor('a')
 
-		@left_leg.speed = 20
-		@right_leg.speed = 20
-		@gun.speed = 30
+		puts "Connected to EV3"
 
-		@left_forward = true
-		@right_forward = true
+		define_values
 	end
 
 	def disconnect
@@ -31,7 +27,7 @@ class Ev3Bot
 	# gun
 	def shoot num_balls
 		self.gun.start
-		sleep num_balls * 2.2
+		sleep num_balls * 1.5
 		self.gun.stop
 	end
 
@@ -91,5 +87,15 @@ class Ev3Bot
 		self.right_leg.reverse
 
 		self.right_forward = self.right_forward ? false : true
+	end
+
+	# values
+	def define_values
+		left_leg.speed = 25
+		right_leg.speed = 25
+		gun.speed = 50
+
+		left_forward = true
+		right_forward = true
 	end
 end

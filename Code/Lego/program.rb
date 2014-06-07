@@ -8,6 +8,8 @@ keyboard = KeyboardRobot.new
 keyboard.add_handler "b", lambda { bot.beep }
 keyboard.add_handler "s", lambda { bot.shoot 1 }
 
+keyboard.add_handler "d", lambda { bot.disconnect }
+
 keyboard.add_handler "space", lambda { bot.stop }
 
 keyboard.add_handler "up", lambda { bot.forward }

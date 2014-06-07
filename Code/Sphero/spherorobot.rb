@@ -2,20 +2,19 @@ require 'sphero'
 
 class SpheroRobot
 	attr_accessor :sphero, :speed
-	attr_accessor :blue, :red, :green, :yellow
+	attr_accessor :blue, :red, :green, :yellow, :white
 
 	def initialize
 		puts "Connecting to Sphero ..."
+
 		@sphero = Sphero.new "/dev/tty.Sphero-YOR-AMP-SPP"
-		@sphero.ping
+		@speed = 100
+		define_colors
 
-		@speed = 50
+		raise "Unable to connect to Sphero !!!" unless test_connection
 
-		#colors
-		@blue = [0,0,255]
-		@red = [255,0,0]
-		@green = [0,255,0]
-		@yellow = [255,255,0]
+		change_color :white
+		puts "Connected to Sphero ..."
 	end
 	
 	def change_color color
@@ -31,5 +30,23 @@ class SpheroRobot
 
 	def stop
 		sphero.stop
+	end
+
+	def test_connection
+		5.times do
+			response = sphero.ping
+			return true if response
+			sleep 0.1
+		end
+
+		return false
+	end
+
+	def define_colors
+		@blue = [0,0,255]
+		@red = [255,0,0]
+		@green = [0,255,0]
+		@yellow = [255,255,0]
+		@white = [255,255,255]
 	end
 end
